@@ -25,7 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "test:debug": "react-scripts --inspect-brk test --runInBand --no-cache",
-    "coverage": "yarn test -- --coverage",
+    "coverage": "yarn test --coverage --watchAll=false",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -34,6 +34,9 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{js,jsx,ts,tsx}",
+      "!src/react-app-env.d.ts",
+      "!src/index.tsx",
+      "!src/serviceWorker.ts",
       "!<rootDir>/node_modules/"
     ],
     "coverageThreshold": {
