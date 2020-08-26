@@ -1,4 +1,4 @@
 {
   "src/**/*.{js,jsx,ts,tsx}": ["prettier --write", "eslint --fix --max-warnings=-1"],
-  "src/**/*.{json,css,scss,md}": ["prettier --single-quote --write"]
+  "src/**/*.{json,md}": ["prettier --write"]
 }

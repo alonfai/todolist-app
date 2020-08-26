@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "outDir": "build/dist",
     "module": "esnext",
     "target": "es5",
@@ -23,6 +23,7 @@
     "noUnusedLocals": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "downlevelIteration": true,
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "resolveJsonModule": true,
@@ -36,7 +37,7 @@
     "acceptance-tests",
     "webpack",
     "jest",
-    "src/setupTests.ts"
+    "src/setupTests.js"
   ],
   "include": [
     "src"
