@@ -25,6 +25,7 @@ This project will need the following enhancements to the given solution to make 
 In this project, the main npm modules used are
 
 * Node 10.x
+* React 16.8+ with React hooks
 * Typescript 4
 * bootstrap 4 for Styling the UI elements
 * sass/css for basic styling
@@ -36,6 +37,8 @@ In this project, the main npm modules used are
 
 ## Pre-Requirements
 
+* Node version 10+
+* Yarn package manager (<https://classic.yarnpkg.com/en/docs/install#mac-stable>)
 * .env - add the react router base URL for all locations under "REACT_APP_BASENAME"
 
 ***
@@ -49,6 +52,82 @@ git clone https://github.com/alonfai/todolist-app
 
 yarn install
 ```
+
+***
+
+
+## Project structure
+
+This project was written with TypeScript and its seetings are configured in the main `tsconfig.json` 
+
+``` json
+
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "outDir": "build/dist",
+    "module": "esnext",
+    "target": "es5",
+    "lib": [
+      "es6",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
+    "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "downlevelIteration": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true
+  },
+  "exclude": [
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.js"
+  ],
+  "include": [
+    "src"
+  ]
+}
+
+```
+
+## State management
+
+This project using the React Context API and the `useReducer` hook for managing its local state of tasks throughout the system.
+
+The main project folders are located inside the `src` folder:
+
+* components - React functional components for Displaying, Viewing, Editing and rendering **Task** objects.
+  * Add - Render a form for adding a new Task to the system
+  * Edit - Renders a modal window for user to be able to edit the priorirty of a task
+  * List - Renders a List of tasks
+  * Task - Renders a single record of a given task inside a table `<tr />` element
+* context - code logic for the state management code (using native React hooks `useContext` and `useReducer`)
+* mocks - collection of mock objects used throughout the unit/integration tests
+* pages - React components associated with available url routes user can access throughtout the project
+  * NoMatch - any invalid route user type in the browser will render this page
+  * Root - Main application page
+* shared - collection of shared utilitiy functions, constants, custom JS Error objects and shared TypeScript interfaces
+* types - custom typescript definition types
 
 ***
 
@@ -78,7 +157,14 @@ Builds the app for production to the `build` folder.
 
 You can then deploy the app to your production environment and/or add this as part of your CI/CD pipeline
 
-
 ### `yarn eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+***
+
+## References
+
+* [React Context API](<https://reactjs.org/docs/context.html>)
+* [React hooks + useReducer](<https://reactjs.org/docs/hooks-reference.html#usereducer>)
+* [Jest CLI](<https://jestjs.io/docs/en/configuration>)
